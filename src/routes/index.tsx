@@ -1,9 +1,12 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
 import { Header } from '../components/Header';
+
 import { Country } from '../pages/Country';
 import { Home } from '../pages/Home';
 
 export function Router() {
+ 
   return(
     <BrowserRouter>
       <Header/>

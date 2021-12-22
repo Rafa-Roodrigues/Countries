@@ -1,18 +1,23 @@
 import { GlobalStyle } from "./styles/global";
-
-import light from './styles/theme/light';
-import dark from './styles/theme/dark';
-
 import { Router } from './routes';
 
-import {ThemeProvider} from 'styled-components';
+import { ThemeProvider } from 'styled-components';
+
+import dark from './styles/theme/dark';
+import light from './styles/theme/light';
+import { useContext } from "react";
+import { ThemeContext } from "./context/ThemeContext";
 
 function App() {
+  const { themeIsActive } = useContext(ThemeContext);
   return (
-    <ThemeProvider theme={dark}>
-      <Router/>
-      <GlobalStyle/>
-    </ThemeProvider>
+    <>
+      <ThemeProvider theme={themeIsActive ? dark : light}>
+        <Router/>
+        <GlobalStyle/>
+      </ThemeProvider>
+    </>
+    
   )
 }
 

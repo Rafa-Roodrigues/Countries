@@ -1,12 +1,11 @@
-import { useContext } from 'react';
 import { MdDarkMode, MdLightMode} from 'react-icons/md';
 import { Link } from 'react-router-dom';
-import { ThemeContext } from '../../context/ThemeContext';
+import { useTheme } from '../../hooks/useTheme';
 
 import { Container, Content} from './style';
 
 export function Header() {
-  const { changeTheme, themeIsActive } = useContext(ThemeContext);
+  const { changeTheme, themeIsActive  } = useTheme();
   
   return (
     <Container>
@@ -17,17 +16,15 @@ export function Header() {
           type="button"
         >
          {themeIsActive ? (
-           <>
-            <MdDarkMode/>
-            Dark Mode
-          </>
-           
-         ) : (
           <>
             <MdLightMode/>
             Light Mode
           </>
-          
+         ) : (
+          <>
+            <MdDarkMode/>
+            Dark Mode
+          </>
          ) }
         </button>
       </Content>

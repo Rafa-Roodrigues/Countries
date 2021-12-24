@@ -1,51 +1,48 @@
-import { Search } from "../../components/Search";
+import { Loading } from "../../components/Loading";
+import { Search } from '../../components/Search';
+import { Filter } from '../../components/Filter';
 
-import brazil from '../../assets/brazil.png';
-
-import {Container, Card} from './style';
+import { Container, Card, ContainerSearchFilter } from './style';
+import { useCountries } from "../../hooks/useCountries";
 
 export function Home() {
+  const { countries } = useCountries();
+
   return(
     <>
-      <Search/>
-      <Container>
-        <Card to="/country/1">
-          <img src={brazil} alt="bandeira do brazil"></img>
-          <div>
-            <h3>Brazil</h3>
-            <p>Population: <span>1.210.000.000</span></p>
-            <p>Region: <span>Americas</span></p>
-            <p>Capital: <span>Brasilia</span></p>
-          </div>
-        </Card>
-        <Card to="/country/1">
-          <img src={brazil} alt="bandeira do brazil"></img>
-          <div>
-            <h3>Brazil</h3>
-            <p>Population: <span>210.000.000</span></p>
-            <p>Region: <span>Americas</span></p>
-            <p>Capital: <span>Brasilia</span></p>
-          </div>
-        </Card>
-        <Card to="/country/1">
-          <img src={brazil} alt="bandeira do brazil"></img>
-          <div>
-            <h3>Brazil</h3>
-            <p>Population: <span>210.000.000</span></p>
-            <p>Region: <span>Americas</span></p>
-            <p>Capital: <span>Brasilia</span></p>
-          </div>
-        </Card>
-        <Card to="/country/1">
-          <img src={brazil} alt="bandeira do brazil"></img>
-          <div>
-            <h3>Brazil</h3>
-            <p>Population: <span>210.000.000</span></p>
-            <p>Region: <span>Americas</span></p>
-            <p>Capital: <span>Brasilia</span></p>
-          </div>
-        </Card>
-      </Container>
+      {countries.length > 0 ? (
+        <>
+          <ContainerSearchFilter>
+            <Search/>
+            <Filter/>
+          </ContainerSearchFilter>
+          <Container>
+            {countries.map(country => (
+              <Card key={country.name.common} to={`/country/${country.name.common}`}>
+                <img src={country.flags.svg} alt={`flag of ${country.name.common}`}></img>
+                <div>
+                  <h3>{country.name.common}</h3>
+                  <p>
+                    Population: 
+                    <span>
+                      {Intl.NumberFormat("pt-br", {style: "decimal"}).format(country.population)}
+                    </span>
+                  </p>
+                  <p>Region: <span>{country.region}</span></p>
+                  <p>Capital: <span>{country.capital}</span></p>
+                </div>
+              </Card>
+            ))}
+          </Container>
+        </>
+      ) : (
+        <Loading/>
+      )}
     </>
   )
 }
+
+
+
+
+

@@ -1,5 +1,4 @@
-export default {
-  theme: "light",
+export const light =  {
   colors: {
     elements: "hsl(0, 0%, 100%)",
     background: "hsl(0, 0%, 98%)",

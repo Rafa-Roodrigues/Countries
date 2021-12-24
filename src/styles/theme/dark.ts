@@ -1,5 +1,4 @@
-export default {
-  theme: "dark",
+export const dark =  {
   colors: {
     elements: "hsl(209, 23%, 22%)",
     background: "hsl(207, 26%, 17%)",

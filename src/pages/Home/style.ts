@@ -35,7 +35,8 @@ export const Container = styled.section`
 `;
 
 export const Card = styled(Link)`
-  max-width: 240px;
+  max-width: 230px;
+  width: 100%;
   display: block;
 
   background-color: ${(props) => props.theme.colors.elements};
@@ -45,7 +46,9 @@ export const Card = styled(Link)`
   color: ${(props) => props.theme.colors.text};
   
   img {
+    max-width: inherit;
     width: 100%;
+    min-height: 150px;
     max-height: 150px;
     border-radius: 5px 5px 0 0;
   }
@@ -67,7 +70,23 @@ export const Card = styled(Link)`
     span {
       filter: brightness(0.8);
       font-weight: 400;
+      margin-left: 4px;
     }
     
+  }
+`;
+
+export const ContainerSearchFilter = styled.section`
+  max-width: var(--max-width);
+  width: 100%;
+
+  margin: 2.25rem auto;
+  padding: 0 1rem;
+
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: 775px) {
+    flex-direction: column;
   }
 `;

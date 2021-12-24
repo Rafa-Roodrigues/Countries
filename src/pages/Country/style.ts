@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 export const Container = styled.section`
   max-width: var(--max-width);
+  /* background: orange; */
 
   margin: 0 auto;
   padding: 0 1rem;
@@ -23,16 +24,16 @@ export const Container = styled.section`
     grid-template-columns: 1fr 1fr;
 
     .section-info {
-      padding: 3rem 0 0 3rem;
+      padding-left: 3rem;
+      padding-top: 1rem;
     }
   }
-  
 `;
 
 export const ContainerImageCountry = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 
   img {
     width: 100%;
@@ -73,7 +74,7 @@ export const ContainerInfo = styled.div`
       color: ${(props) => props.theme.colors.text};
 
       padding: 0.3125rem 1.25rem;
-      margin-left: 1rem;
+      margin: 5px;
     }
   }
 
@@ -132,9 +133,8 @@ export const ContainerBack = styled.section`
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 2.5rem 1rem;
-
-
 `;
+
 export const ButtonBack = styled(Link)`
 
   max-width: 150px;

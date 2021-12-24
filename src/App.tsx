@@ -1,23 +1,29 @@
 import { GlobalStyle } from "./styles/global";
 import { Router } from './routes';
+import { ToastContainer } from 'react-toastify';
 
 import { ThemeProvider } from 'styled-components';
 
-import dark from './styles/theme/dark';
-import light from './styles/theme/light';
-import { useContext } from "react";
-import { ThemeContext } from "./context/ThemeContext";
+import { dark } from './styles/theme/dark';
+import { light } from './styles/theme/light';
+import { useTheme } from "./hooks/useTheme";
+import { CountriesProvider } from "./hooks/useCountries";
+
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
-  const { themeIsActive } = useContext(ThemeContext);
+  const { themeIsActive } = useTheme();
+
   return (
     <>
-      <ThemeProvider theme={themeIsActive ? dark : light}>
-        <Router/>
-        <GlobalStyle/>
+      <ThemeProvider theme={themeIsActive ? light : dark}>
+        <CountriesProvider>
+          <Router/>
+          <ToastContainer autoClose={2500}/>
+          <GlobalStyle/>
+        </CountriesProvider>
       </ThemeProvider>
     </>
-    
   )
 }
 

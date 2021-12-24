@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useState } from "react";
+import { createContext, ReactNode, useContext, useState } from "react";
 
 interface ThemeContextProps {
   themeIsActive: boolean;
@@ -9,7 +9,7 @@ interface ProviderThemeProps {
   children:ReactNode
 }
 
-export const ThemeContext = createContext<ThemeContextProps>(
+const ThemeContext = createContext<ThemeContextProps>(
   {} as ThemeContextProps
 );
 
@@ -17,14 +17,14 @@ export function ProviderTheme({ children }: ProviderThemeProps) {
   const [themeIsActive, setThemeIsActive] = useState(() => {
     const theme = localStorage.getItem("@THEME");
 
-    if(theme) return true;
-  
+    if(theme === "true") return true;
+
     return false;
   });
-
+  
   function changeTheme() {
     setThemeIsActive(!themeIsActive);
-    localStorage.setItem("@THEME", JSON.stringify(themeIsActive));
+    localStorage.setItem("@THEME", JSON.stringify(!themeIsActive));
   }
 
   return (
@@ -32,4 +32,9 @@ export function ProviderTheme({ children }: ProviderThemeProps) {
       {children}
     </ThemeContext.Provider>
   )
+}
+
+export function useTheme() {
+  const theme = useContext(ThemeContext);
+  return theme;
 }

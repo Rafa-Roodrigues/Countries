@@ -1,4 +1,19 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+
+export const Container = styled.section`
+  max-width: var(--max-width);
+  width: 100%;
+
+  margin: 2.25rem auto;
+  padding: 0 1rem;
+
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: 775px) {
+    flex-direction: column;
+  }
+`;
 
 export const Form = styled.form`
   background-color: ${(props) => props.theme.colors.elements};
@@ -55,5 +70,25 @@ export const Form = styled.form`
 
   @media (max-width: 775px) {
     max-width: 100%;
+  }
+`;
+
+export const Select = styled.select`
+  max-width: 170px;
+  width: 100%;
+  min-height: 3.5rem;
+
+  background-color: ${(props) => props.theme.colors.elements};
+  border: 0;
+  border-radius: 0.25rem;
+  box-shadow: ${(props) => props.theme.colors.shadow};
+
+  color: ${(props) => props.theme.colors.text};
+  font-size: 0.9375rem;
+
+  padding: 0 1rem;
+
+  @media (max-width: 775px) {
+    margin-top: 2.25rem;
   }
 `;

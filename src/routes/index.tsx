@@ -12,7 +12,7 @@ export function Router() {
       <Header/>
       <Routes>
         <Route path="/" element={<Home/> }/>
-        <Route path="/country/:id" element={<Country/> }/>
+        <Route path="/country/:name" element={<Country/> }/>
         <Route path="*" element={() => <h1>404</h1>}/>
       </Routes>
     </BrowserRouter>

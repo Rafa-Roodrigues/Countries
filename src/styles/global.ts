@@ -11,6 +11,26 @@ export const GlobalStyle = createGlobalStyle`
     --max-width: 1100px;
   }
 
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {c
+    background: #555;
+  }
+
+  main {
+    min-height: calc(100vh - 12rem);
+  }
+
   body {
     background-color: ${(props) => props.theme.colors.background};
   }

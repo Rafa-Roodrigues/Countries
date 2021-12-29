@@ -9,6 +9,7 @@ declare module 'styled-components' {
       shadow: string;
       shadowHeader: string;
       input?: string;
+      shadowFooter: string;
     }
   }
 }

@@ -15,22 +15,22 @@ export const Container = styled.section`
   
   @media (max-width: 499px) {
     grid-template-columns: repeat(1, 1fr);
-    gap: 30px;
+    gap: 10px;
   }
 
   @media (min-width: 500px) {
     grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
+    gap: 20px;
   }
 
   @media (min-width: 775px) {
     grid-template-columns: repeat(3, 1fr);
-    gap: 50px;
+    gap: 30px;
   }
 
   @media (min-width: 1060px) {
     grid-template-columns: repeat(4, 1fr);
-    gap: 60px;
+    gap: 40px;
   }
 `;
 

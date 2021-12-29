@@ -8,9 +8,14 @@ export const Container = styled.header`
 export const Content = styled.div`
   max-width: var(--max-width);
   width: 100%;
+  height: 5rem;
 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 1rem;
   margin: 0 auto;
-  padding: 1.5rem 1rem;
 
   display: flex;
   justify-content: space-between;

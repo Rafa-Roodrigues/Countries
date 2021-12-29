@@ -1,4 +1,4 @@
-import { ChangeEvent, SetStateAction, useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useCountries } from '../../hooks/useCountries';
 import { Select } from './style';
 
@@ -33,14 +33,3 @@ export function Filter() {
     </Select>
   );
 }
-
-
-
-
-
-{/* <option value="">All Continents</option>
-<option value="africa">Africa</option>
-<option value="americas">Americas</option>
-<option value="asia">Asia</option>
-<option value="europe">Europe</option>
-<option value="oceania" selected={true}>Oceania</option> */}

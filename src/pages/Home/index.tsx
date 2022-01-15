@@ -10,12 +10,12 @@ export function Home() {
 
   return(
     <>
+      <ContainerSearchFilter>
+        <Search/>
+        <Filter/>
+      </ContainerSearchFilter>
       {countries.length > 0 ? (
         <>
-          <ContainerSearchFilter>
-            <Search/>
-            <Filter/>
-          </ContainerSearchFilter>
           <Container>
             {countries.map(country => (
               <Card key={country.name.common} to={`/country/${country.name.common}`}>
@@ -35,14 +35,46 @@ export function Home() {
             ))}
           </Container>
         </>
-      ) : (
+      ): (
         <Loading/>
       )}
     </>
   )
 }
 
+// export function Home() {
+//   const { countries } = useCountries();
 
-
-
-
+//   return(
+//     <>
+//       {countries.length > 0 ? (
+//         <>
+//           <ContainerSearchFilter>
+//             <Search/>
+//             <Filter/>
+//           </ContainerSearchFilter>
+//           <Container>
+//             {countries.map(country => (
+//               <Card key={country.name.common} to={`/country/${country.name.common}`}>
+//                 <img src={country.flags.svg} alt={`flag of ${country.name.common}`}></img>
+//                 <div>
+//                   <h3>{country.name.common}</h3>
+//                   <p>
+//                     Population: 
+//                     <span>
+//                       {Intl.NumberFormat("pt-br", {style: "decimal"}).format(country.population)}
+//                     </span>
+//                   </p>
+//                   <p>Region: <span>{country.region}</span></p>
+//                   <p>Capital: <span>{country.capital}</span></p>
+//                 </div>
+//               </Card>
+//             ))}
+//           </Container>
+//         </>
+//       ) : (
+//         <Loading/>
+//       )}
+//     </>
+//   )
+// }

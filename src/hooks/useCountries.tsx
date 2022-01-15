@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useContext, useEffect, useState } from "react";
+import { createContext, ReactNode, useContext, useState } from "react";
 import { api } from "../services/api";
 
 import { toast } from 'react-toastify';
@@ -38,21 +38,12 @@ const CountriesContext = createContext<CountriesContextProps>(
 export function CountriesProvider({children}: CountriesProviderProps) {
   const [countries, setCountries] = useState<CountryProps[]>([]);
 
-  useEffect(() => {
-    async function temp() {
-      const response = await api.get("all");
-      setCountries(response.data);
-    }
-
-    temp();
-  }, []);
-
   async function request(endpoint: string) {
     try {
       const response = await api.get(endpoint);
       setCountries(response.data);
     } catch(err) {
-      toast.error("Country not found.")
+      toast.error("Country not found.");
     }
   }
 

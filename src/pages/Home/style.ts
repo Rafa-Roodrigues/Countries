@@ -10,12 +10,10 @@ export const Container = styled.section`
 
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  align-items: center;
-  justify-items: center;
   
   @media (max-width: 499px) {
     grid-template-columns: repeat(1, 1fr);
-    gap: 10px;
+    gap: 20px;
   }
 
   @media (min-width: 500px) {
@@ -37,7 +35,11 @@ export const Container = styled.section`
 export const Card = styled(Link)`
   max-width: 230px;
   width: 100%;
-  display: block;
+
+  display: flex;
+  flex-direction: column;
+
+  margin: 0 auto;
 
   background-color: ${(props) => props.theme.colors.elements};
   border-radius: 5px;
@@ -46,16 +48,23 @@ export const Card = styled(Link)`
   color: ${(props) => props.theme.colors.text};
   
   img {
-    max-width: inherit;
     width: 100%;
-    min-height: 150px;
-    max-height: 150px;
     border-radius: 5px 5px 0 0;
+
+    max-height: 160px;
+    display: block;
   }
 
   div {
-    padding: 1rem 1.5rem 2.25rem 1.5rem;
+    /* padding: 1rem 1.5rem 1.5rem 1.5rem; */
+    padding: 1rem;
     font-size: 14px;
+
+    /* background: purple; */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
 
     p {
       margin-bottom: 0.25rem;

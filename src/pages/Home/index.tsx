@@ -8,11 +8,11 @@ import { useCountries } from "../../hooks/useCountries";
 export function Home() {
   const { countries } = useCountries();
 
-  return(
+  return (
     <>
       <ContainerSearchFilter>
-        <Search/>
-        <Filter/>
+        <Search />
+        <Filter />
       </ContainerSearchFilter>
       {countries.length > 0 ? (
         <>
@@ -23,9 +23,9 @@ export function Home() {
                 <div>
                   <h3>{country.name.common}</h3>
                   <p>
-                    Population: 
+                    Population:
                     <span>
-                      {Intl.NumberFormat("pt-br", {style: "decimal"}).format(country.population)}
+                      {Intl.NumberFormat("pt-br", { style: "decimal" }).format(country.population)}
                     </span>
                   </p>
                   <p>Region: <span>{country.region}</span></p>
@@ -35,8 +35,8 @@ export function Home() {
             ))}
           </Container>
         </>
-      ): (
-        <Loading/>
+      ) : (
+        <Loading />
       )}
     </>
   )
@@ -60,7 +60,7 @@ export function Home() {
 //                 <div>
 //                   <h3>{country.name.common}</h3>
 //                   <p>
-//                     Population: 
+//                     Population:
 //                     <span>
 //                       {Intl.NumberFormat("pt-br", {style: "decimal"}).format(country.population)}
 //                     </span>

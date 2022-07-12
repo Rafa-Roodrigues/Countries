@@ -5,7 +5,7 @@ export const Container = styled.header`
   box-shadow: ${(props) => props.theme.colors.shadowHeader};
 `;
 
-export const Content = styled.div`
+export const Content = styled.nav`
   max-width: var(--max-width);
   width: 100%;
   height: 5rem;
